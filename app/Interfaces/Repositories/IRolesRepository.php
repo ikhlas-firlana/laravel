@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Interfaces\Services;
+namespace App\Interfaces\Repositories;
 
 interface IRolesRepository {
 
