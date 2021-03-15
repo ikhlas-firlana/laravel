@@ -15,6 +15,17 @@ class UsersService implements IUsersService {
     }
 
     public function GetUserData(number $id) {
-        return;
+        $users = $this->users->FindUserById($id);
+
+        foreach ($users as $row => $value) {
+            $roles = $this->role->FindUserById($value['ID']);
+
+            if(!isset($value['Roles']))
+                $value['Roles'] = [];
+            
+            $value['Roles'] = array_merge($value['Roles'], $roles);
+        }
+
+        return $users;
     }
 }

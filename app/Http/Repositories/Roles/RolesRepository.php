@@ -6,7 +6,7 @@ use App\Http\Interfaces\Repositories\IRolesRepository;
 
 class RolesRepository implements IRolesRepository{
 
-    private $lib = [
+    private $data = [
         ["ID" => 1, "role" => "public"],
         ["ID" => 1, "role" => "admin"],
         ["ID" => 2, "role" => "admin"],
@@ -19,8 +19,9 @@ class RolesRepository implements IRolesRepository{
         ];
     }
 
-    public function FindById(number $int) {
-
-        return;
+    public function FindById(number $id) {
+        return array_filter($this->data, function ($value) use($id) {
+            return $value['ID'] === $id;
+        });
     }
 }
