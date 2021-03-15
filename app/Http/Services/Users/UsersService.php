@@ -2,10 +2,11 @@
 
 namespace App\Http\Services\Users;
 
-use App\Interfaces\Services\IUsersService;
+use App\Http\Interfaces\Services\IUsersService;
+// use App\Http\Interfaces\Services\IUsersService;
 
-use App\Repositories\Roles\RolesRepository;
-use App\Repositories\Users\UsersRepository;
+use App\Http\Repositories\Roles\RolesRepository;
+use App\Http\Repositories\Users\UsersRepository;
 
 class UsersService implements IUsersService {
     public $users, $role;
@@ -14,18 +15,23 @@ class UsersService implements IUsersService {
         $this->role = $r;
     }
 
-    public function GetUserData(number $id) {
+    public function GetUserData(int $id) {
         $users = $this->users->FindUserById($id);
 
+        $tmp = [];
         foreach ($users as $row => $value) {
-            $roles = $this->role->FindUserById($value['ID']);
+            $roles = $this->role->FindById($value['ID']);
 
             if(!isset($value['Roles']))
                 $value['Roles'] = [];
-            
-            $value['Roles'] = array_merge($value['Roles'], $roles);
+
+            $tmp[] = array_merge(
+                $value,
+                ["Roles" => $roles],
+            );
+
         }
 
-        return $users;
+        return $tmp;
     }
 }

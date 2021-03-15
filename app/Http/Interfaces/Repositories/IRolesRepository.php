@@ -8,5 +8,5 @@ interface IRolesRepository {
 
     public function GetRoles();
 
-    public function FindById(number $id);
+    public function FindById(int $id);
 }

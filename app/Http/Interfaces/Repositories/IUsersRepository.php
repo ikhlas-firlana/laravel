@@ -8,6 +8,6 @@ interface IUsersRepository {
 
     public function GetUsers();
 
-    public function FindUserById(number $id);
+    public function FindUserById(int $id);
 }
 

@@ -13,7 +13,7 @@ class UsersRepository implements IUsersRepository{
         return $this->data;
     }
 
-    public function FindUserById(number $id) {
+    public function FindUserById(int $id) {
         return array_filter($this->data, function ($val) use($id) {
             return $val['ID'] == $id;
         });

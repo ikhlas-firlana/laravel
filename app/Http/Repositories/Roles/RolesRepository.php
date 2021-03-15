@@ -11,6 +11,8 @@ class RolesRepository implements IRolesRepository{
         ["ID" => 1, "role" => "admin"],
         ["ID" => 2, "role" => "admin"],
     ];
+
+    public function __construct() {}
     
     public function GetRoles() {
         return [
@@ -19,7 +21,7 @@ class RolesRepository implements IRolesRepository{
         ];
     }
 
-    public function FindById(number $id) {
+    public function FindById(int $id) {
         return array_filter($this->data, function ($value) use($id) {
             return $value['ID'] === $id;
         });

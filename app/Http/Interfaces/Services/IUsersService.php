@@ -3,5 +3,5 @@
 namespace App\Http\Interfaces\Services;
 
 interface IUsersService {
-    public function GetUserData(number $id);
+    public function GetUserData(int $id);
 }
