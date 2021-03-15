@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Repositories\Roles;
+namespace App\Http\Repositories\Users;
 
-use App\Interfaces\Repositories\IUsersRepository;
+use App\Http\Interfaces\Repositories\IUsersRepository;
 
 class UsersRepository implements IUsersRepository{
     

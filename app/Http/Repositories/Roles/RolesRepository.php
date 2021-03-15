@@ -2,7 +2,7 @@
 
 namespace App\Http\Repositories\Roles;
 
-use App\Interfaces\Repositories\IRolesRepository;
+use App\Http\Interfaces\Repositories\IRolesRepository;
 
 class RolesRepository implements IRolesRepository{
 
